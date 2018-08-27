@@ -2,10 +2,10 @@ Mask RCNN for Human Pose Estimation
 -----------------------------------
 
 The original code is from "https://github.com/matterport/Mask_RCNN" on Python 3, Keras, and TensorFlow. The code reproduce the work of "https://arxiv.org/abs/1703.06870" for human pose estimation.
-This project aims to addressing the [issue#2][1]. 
+This project aims to addressing the [issue#2][1].
 When I start it, I refer to another project by [@RodrigoGantier][2] .
 ## However RodrigoGantier's project has the following problems:
-*  It's codes have few comments and still use the oringal names from [@Matterport][3]'s project, which make the project hard to understand. 
+*  It's codes have few comments and still use the oringal names from [@Matterport][3]'s project, which make the project hard to understand.
 *  When I trained this model, I found it's hard to converge as described in [issue#3][4].
 
 ## Requirements
@@ -14,11 +14,27 @@ When I start it, I refer to another project by [@RodrigoGantier][2] .
 * Keras 2.0.8+
 * Jupyter Notebook
 * Numpy, skimage, scipy, Pillow, cython, h5py
+
+You may need the following command:
+
+1, Install python-skimage
+```
+sudo apt-get install python-skimage
+```
+
+2, Install pycocotools.coco:
+```
+sudo pip3 install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+```
 # Getting Started
 * [inference_humanpose.ipynb][5] shows how to predict the keypoint of human using my trained model. It randomly chooses a image from the validation set. You can download pre-trained COCO weights for human pose estimation (mask_rcnn_coco_humanpose.h5) from the releases page (https://github.com/Superlee506/Mask_RCNN_Humanpose/releases).
 * [train_humanpose.ipynb][6] shows how to train the model step by step. You can also use "python train_humanpose.py" to  start training.
 * [inspect_humanpose.ipynb][7] visulizes the proposal target keypoints to check it's validity. It also outputs some innner layers to help us debug the model.
 * [demo_human_pose.ipynb][8] A new demo for images input from the "images" folder. [04-11-2018]
+Or run:
+```
+python3 demo_human_pose.py
+```
 * [video_demo.py][9] A new demo for video input from camera.[04-11-2018]
 
 # Discussion

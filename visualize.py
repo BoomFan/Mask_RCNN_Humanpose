@@ -17,6 +17,15 @@ import matplotlib.patches as patches
 import matplotlib.lines as lines
 from matplotlib.patches import Polygon
 import IPython.display
+
+# Add this block for ROS python conflict
+import sys
+try:
+    sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+    sys.path.remove('$HOME/segway_kinetic_ws/devel/lib/python2.7/dist-packages')
+except ValueError:
+    pass
+
 import cv2
 import utils
 
@@ -374,7 +383,7 @@ def display_keypoints(image, boxes, keypoints, class_ids, class_names,
 
 
 
-    
+
 
 def draw_rois(image, rois, refined_rois, mask, class_ids, class_names, limit=10):
     """
